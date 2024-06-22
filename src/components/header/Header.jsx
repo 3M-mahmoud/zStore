@@ -1,11 +1,12 @@
 import React from "react";
 import MidBar from "./midbar/MidBar";
-// import TopHeader from "./TopHeader/TopHeader";
+import TopHeader from "./TopHeader/TopHeader";
 
 export default function Header() {
   return (
     <div>
       <MidBar />
+      <TopHeader />
       
     </div>
   );
