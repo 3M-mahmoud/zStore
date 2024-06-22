@@ -1,9 +1,10 @@
 import React from 'react'
+import MidBar from './midbar/MidBar'
 
 export default function Header() {
   return (
     <div>
-      <h1>Headerسسسسسسسسسسسسسسسسسسسسس</h1>
+      <MidBar />
     </div>
   )
 }
