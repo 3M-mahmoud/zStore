@@ -23,7 +23,7 @@ function TopHeader() {
   const { t, i18n } = useTranslation();
   return (
     <>
-      <AppBar position="fixed" color="primary">
+      <AppBar color="primary">
         <Container maxWidth="lg" className="bo">
           <Stack
             direction={"row"}
