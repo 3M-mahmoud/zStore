@@ -108,7 +108,7 @@ function TopHeader() {
               </>
 
               {/* Select Language */}
-              <FormControl fullWidth placeholder={lang}>
+              <FormControl FormControl fullWidth placeholder={lang}>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
