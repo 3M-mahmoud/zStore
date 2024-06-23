@@ -24,7 +24,8 @@ const MidBar = () => {
   const theme = useTheme();
 
   return (
-    <Container sx={{ paddingTop: 1, paddingBottom: 1 }}>
+    <Box sx={{bgcolor: "#F8F8F8"}}>
+    <Container sx={{ paddingTop: 1, paddingBottom: 1}}>
       <Stack
         direction={"row"}
         alignItems={"center"}
@@ -152,12 +153,13 @@ const MidBar = () => {
         )}
         {useMediaQuery("(max-width:1000px)") && (
         <Stack direction={"row"} alignItems="center" gap={3}>
-        <Search sx={{fontSize: 30}} />
-        <ShoppingCartOutlined sx={{fontSize: 30}} />
+        <Search sx={{fontSize: 30, cursor: "pointer"}} />
+        <ShoppingCartOutlined sx={{fontSize: 30, cursor: "pointer"}} />
         </Stack>
         )}
       </Stack>
     </Container>
+    </Box>
   );
 };
 
