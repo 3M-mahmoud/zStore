@@ -1,18 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import Container from "@mui/material/Container";
-import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
-import { Stack } from "@mui/material";
-import { ColorModeContext } from "../../Theme/theme";
-import { IconButton, useTheme, Button } from "@mui/material";
-import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
+import { Box, Stack } from "@mui/material";
+import {  useTheme, Button } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import InsightsIcon from "@mui/icons-material/Insights";
 import { useTranslation } from "react-i18next";
 function TopHeader() {
-  const colorMode = useContext(ColorModeContext);
   const theme = useTheme();
   const [lang, setLang] = React.useState("en");
 
@@ -21,14 +19,19 @@ function TopHeader() {
   };
 
   const { t, i18n } = useTranslation();
+  console.log(i18n.language);
   return (
     <>
-      <AppBar color="primary">
-        <Container maxWidth="lg" className="bo">
+      <Box>
+        <Container maxWidth="lg">
           <Stack
             direction={"row"}
             justifyContent={"space-between"}
             alignItems={"center"}
+            // textAlign={"start"}
+            sx={{
+              direction: i18n.language === "ar" ? "rtl" : "ltr",
+            }}
           >
             {/* pc */}
             <Stack
@@ -39,12 +42,52 @@ function TopHeader() {
                   xs: "none",
                   md: "flex",
                 },
+                alignItems: "center",
               }}
             >
-              <Typography variant="h6">home</Typography>
-              <Typography variant="h6">home</Typography>
-              <Typography variant="h6">home</Typography>
+              <Stack
+                direction={"row"}
+                alignItems={"row"}
+                sx={{
+                  "&:hover": {
+                    color: theme.palette.primary.main,
+                    cursor: "pointer",
+                  },
+                }}
+              >
+                <HomeOutlinedIcon fontSize="small" />
+                <Typography variant="body1">{t("TopHeaderHome")}</Typography>
+              </Stack>
+              <Stack
+                direction={"row"}
+                alignItems={"row"}
+                sx={{
+                  "&:hover": {
+                    color: theme.palette.primary.main,
+                    cursor: "pointer",
+                  },
+                }}
+              >
+                <InsightsIcon fontSize="small" />
+                <Typography variant="body1">
+                  {t("TopHeaderAboutStore")}
+                </Typography>
+              </Stack>
+              <Stack
+                direction={"row"}
+                alignItems={"row"}
+                sx={{
+                  "&:hover": {
+                    color: theme.palette.primary.main,
+                    cursor: "pointer",
+                  },
+                }}
+              >
+                <MailOutlineIcon fontSize="small" />
+                <Typography variant="body1">{t("TopHeaderContact")}</Typography>
+              </Stack>
             </Stack>
+
             {/* mobile */}
             <Stack
               direction={"row"}
@@ -77,35 +120,6 @@ function TopHeader() {
             </Stack>
             <Stack direction={"row"} gap={1} alignItems={"center"}>
               {/* Select themeMode */}
-              <>
-                {theme.palette.mode === "light" ? (
-                  <IconButton
-                    onClick={() => {
-                      localStorage.setItem(
-                        "mode",
-                        theme.palette.mode === "dark" ? "light" : "dark"
-                      );
-                      colorMode.toggleColorMode();
-                    }}
-                    color="inherit"
-                  >
-                    <LightModeOutlined />
-                  </IconButton>
-                ) : (
-                  <IconButton
-                    onClick={() => {
-                      localStorage.setItem(
-                        "mode",
-                        theme.palette.mode === "dark" ? "light" : "dark"
-                      );
-                      colorMode.toggleColorMode();
-                    }}
-                    color="inherit"
-                  >
-                    <DarkModeOutlined />
-                  </IconButton>
-                )}
-              </>
 
               {/* Select Language */}
               <FormControl FormControl fullWidth placeholder={lang}>
@@ -115,6 +129,9 @@ function TopHeader() {
                   value={lang}
                   onChange={handleChange}
                   variant="outlined"
+                  sx={{
+                    maxHeight: "40px",
+                  }}
                 >
                   <MenuItem
                     value={"en"}
@@ -145,7 +162,7 @@ function TopHeader() {
             </Stack>
           </Stack>
         </Container>
-      </AppBar>
+      </Box>
     </>
   );
 }

@@ -2,6 +2,7 @@ import { CommentOutlined, Percent, WhatsApp } from "@mui/icons-material";
 import { Container, Stack } from "@mui/material";
 import React from "react";
 import ListMenu from "../../listMenu/ListMenu";
+import { useTranslation } from "react-i18next";
 const Links = [
   {
     id: 1,
@@ -754,6 +755,7 @@ const Links = [
   },
 ];
 const DeskTopMenu = () => {
+  const { t } = useTranslation();
   return (
     <div className="desktop-menu">
       <Container>
@@ -761,7 +763,7 @@ const DeskTopMenu = () => {
           {Links.map((link) => {
             return (
               <li key={link.id}>
-                <a href="#">{link.nameLink}</a>
+                <a href="#">{t(`DeskTopMenu${link.nameLink}`)}</a>
                 <ListMenu Links={link.subLink} />
               </li>
             );

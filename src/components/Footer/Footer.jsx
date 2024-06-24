@@ -19,7 +19,10 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import { useTranslation } from "react-i18next";
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Container maxWidth="lg" className="bo">
@@ -34,70 +37,70 @@ function Footer() {
           {/* About Us */}
           <Stack gap={0.5}>
             <Typography variant="h5" color="">
-              About Us
+              {t("FooterAboutUs")}
             </Typography>
             <Divider color="red" />
             <List>
               <ListItem disablePadding>
-                <ListItemText primary="About Us" />
+                <ListItemText primary={t("FooterAboutUs")} />
               </ListItem>
               <ListItem disablePadding>
-                <ListItemText primary="Delivery" />
+                <ListItemText primary={t("FooterDelivery")} />
               </ListItem>
               <ListItem disablePadding>
-                <ListItemText primary="Privacy Policy" />
+                <ListItemText primary={t("FooterPrivacyPolicy")} />
               </ListItem>
               <ListItem disablePadding>
-                <ListItemText primary="Terms & Conditions" />
+                <ListItemText primary={t("FooterTerms&Conditions")} />
               </ListItem>
             </List>
           </Stack>
           {/* Customer Service */}
           <Stack gap={0.5}>
             <Typography variant="h5" color="">
-              Customer Service
+              {t("FooterCustomerService")}
             </Typography>
             <Divider color="red" />
             <List>
               <ListItem disablePadding>
-                <ListItemText primary="Contact" />
+                <ListItemText primary={t("FooterContact")} />
               </ListItem>
               <ListItem disablePadding>
-                <ListItemText primary="Returns" />
+                <ListItemText primary={t("FooterReturns")} />
               </ListItem>
               <ListItem disablePadding>
-                <ListItemText primary="Site Map" />
+                <ListItemText primary={t("FooterSiteMap")} />
               </ListItem>
               <ListItem disablePadding>
-                <ListItemText primary="Brands" />
+                <ListItemText primary={t("FooterBrands")} />
               </ListItem>
             </List>
           </Stack>
           {/* My Account */}
           <Stack gap={0.5}>
             <Typography variant="h5" color="">
-              My Account
+              {t("FooterMyAccount")}
             </Typography>
             <Divider color="red" />
             <List>
               <ListItem disablePadding>
-                <ListItemText primary="My Account" />
+                <ListItemText primary={t("FooterMyAccount")} />
               </ListItem>
               <ListItem disablePadding>
-                <ListItemText primary="Order History" />
+                <ListItemText primary={t("FooterOrderHistory")} />
               </ListItem>
               <ListItem disablePadding>
-                <ListItemText primary="Affiliates" />
+                <ListItemText primary={t("FooterAffiliates")} />
               </ListItem>
               <ListItem disablePadding>
-                <ListItemText primary="Gift Certificates" />
+                <ListItemText primary={t("FooterGiftCertificates")} />
               </ListItem>
             </List>
           </Stack>
           {/* Newsletter*/}
           <Stack gap={0.5}>
             <Typography variant="h5" color="">
-              Newsletter
+              {t("FooterNewsletter")}
             </Typography>
             <Divider color="red" />
             <Typography
@@ -107,7 +110,7 @@ function Footer() {
                 opacity: ".6",
               }}
             >
-              Stay up to date with news and promotions with out newsletter
+              {t("FooterNewsletterP")}
             </Typography>
             <Box
               sx={{
@@ -229,12 +232,12 @@ function Footer() {
                 bgcolor={"#fff"}
                 alignItems={"center"}
                 borderRadius={"10px"}
-                p={.5}
+                p={0.5}
               >
-              <img
-                src="https://zstoreq8.com/image/cache/catalog/payments/cod-74x25fill.png"
-                alt=""
-              />
+                <img
+                  src="https://zstoreq8.com/image/cache/catalog/payments/cod-74x25fill.png"
+                  alt=""
+                />
               </Stack>
             </Stack>
           </Stack>
