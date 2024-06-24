@@ -2,14 +2,14 @@ import React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Box, Stack } from "@mui/material";
-import {  useTheme, Button } from "@mui/material";
+import { useTheme, Button } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import InsightsIcon from "@mui/icons-material/Insights";
+
 import { useTranslation } from "react-i18next";
+import TopHeaderPc from "./TopHeaderPC/TopHeaderPc";
+import TopHeaderMobile from "./TopHeaderMobile/TopHeaderMobile";
 function TopHeader() {
   const theme = useTheme();
   const [lang, setLang] = React.useState("en");
@@ -34,93 +34,12 @@ function TopHeader() {
             }}
           >
             {/* pc */}
-            <Stack
-              direction={"row"}
-              gap={2}
-              sx={{
-                display: {
-                  xs: "none",
-                  md: "flex",
-                },
-                alignItems: "center",
-              }}
-            >
-              <Stack
-                direction={"row"}
-                alignItems={"row"}
-                sx={{
-                  "&:hover": {
-                    color: theme.palette.primary.main,
-                    cursor: "pointer",
-                  },
-                }}
-              >
-                <HomeOutlinedIcon fontSize="small" />
-                <Typography variant="body1">{t("TopHeaderHome")}</Typography>
-              </Stack>
-              <Stack
-                direction={"row"}
-                alignItems={"row"}
-                sx={{
-                  "&:hover": {
-                    color: theme.palette.primary.main,
-                    cursor: "pointer",
-                  },
-                }}
-              >
-                <InsightsIcon fontSize="small" />
-                <Typography variant="body1">
-                  {t("TopHeaderAboutStore")}
-                </Typography>
-              </Stack>
-              <Stack
-                direction={"row"}
-                alignItems={"row"}
-                sx={{
-                  "&:hover": {
-                    color: theme.palette.primary.main,
-                    cursor: "pointer",
-                  },
-                }}
-              >
-                <MailOutlineIcon fontSize="small" />
-                <Typography variant="body1">{t("TopHeaderContact")}</Typography>
-              </Stack>
-            </Stack>
+            <TopHeaderPc />
 
             {/* mobile */}
-            <Stack
-              direction={"row"}
-              gap={0.5}
-              sx={{
-                display: {
-                  xs: "flex",
-                  md: "none",
-                },
-              }}
-            >
-              <Button
-                variant="text"
-                sx={{
-                  fontSize: "12px",
-                  color: "#fff",
-                }}
-              >
-                Rigstar
-              </Button>
-              <Button
-                variant="text"
-                sx={{
-                  fontSize: "12px",
-                  color: "#fff",
-                }}
-              >
-                log in
-              </Button>
-            </Stack>
-            <Stack direction={"row"} gap={1} alignItems={"center"}>
-              {/* Select themeMode */}
+            <TopHeaderMobile />
 
+            <Stack direction={"row"} gap={1} alignItems={"center"}>
               {/* Select Language */}
               <FormControl FormControl fullWidth placeholder={lang}>
                 <Select
