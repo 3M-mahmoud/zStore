@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
-import Footer from "../../components/Footer/Footer";
 import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer"
 import Hero from "./Hero/Hero";
 import { useTranslation } from "react-i18next";
 
