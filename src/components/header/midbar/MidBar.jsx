@@ -6,10 +6,12 @@ import {
   ShoppingCartOutlined,
 } from "@mui/icons-material";
 import {
+  Badge,
   Box,
   Container,
   Link,
   Stack,
+  styled,
   Typography,
   useMediaQuery,
   useTheme,
@@ -19,10 +21,21 @@ import SearchInput from "../../search/SearchInput";
 import imgLogo from "../../../assets/images/Logo/Logo-Blue-Plus.png";
 import { yellow } from "@mui/material/colors";
 import { Fragment } from "react";
+import { useTranslation } from "react-i18next";
+
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}));
 
 const MidBar = () => {
   const theme = useTheme();
-
+  const { t, i18n } = useTranslation();
   return (
     <Box sx={{bgcolor: "#F8F8F8"}}>
     <Container sx={{ paddingTop: 1, paddingBottom: 1}}>
@@ -63,15 +76,16 @@ const MidBar = () => {
                 alignItems="center"
                 sx={{ "&:hover": { color: theme.palette.primary.main } }}
               >
-                <AccountCircleOutlined sx={{ fontSize: "24px" }} />
+                <AccountCircleOutlined sx={{ fontSize: "30px" }} />
                 <Typography
                   variant="body2"
                   component="p"
-                  sx={{ fontSize: "10px" }}
+                  sx={{ fontSize: "13px" }}
                 >
-                  Account
+                  {t("midbarAccount")}
                 </Typography>
               </Stack>
+              <Badge badgeContent={1} color="error">
               <Stack
                 alignItems="center"
                 sx={{
@@ -81,15 +95,17 @@ const MidBar = () => {
                   },
                 }}
               >
-                <FavoriteBorderOutlined sx={{ fontSize: "24px" }} />
+                <FavoriteBorderOutlined sx={{ fontSize: "30px" }} />
                 <Typography
                   variant="body2"
                   component="p"
-                  sx={{ fontSize: "10px" }}
+                  sx={{ fontSize: "13px" }}
                 >
-                  WishList
+                {t("midbarWishList")}
                 </Typography>
               </Stack>
+              </Badge> 
+              <Badge badgeContent={4} color="error">
               <Stack
                 alignItems="center"
                 sx={{
@@ -99,15 +115,16 @@ const MidBar = () => {
                   },
                 }}
               >
-                <CompareArrows sx={{ fontSize: "24px" }} />
+                <CompareArrows sx={{ fontSize: "30px" }} />
                 <Typography
                   variant="body2"
                   component="p"
-                  sx={{ fontSize: "10px" }}
+                  sx={{ fontSize: "13px" }}
                 >
-                  Compare
+                {t("midbarCompare")}
                 </Typography>
               </Stack>
+              </Badge> 
             </Stack>
             <Stack
               direction="row"
@@ -154,7 +171,9 @@ const MidBar = () => {
         {useMediaQuery("(max-width:1000px)") && (
         <Stack direction={"row"} alignItems="center" gap={3}>
         <Search sx={{fontSize: 30, cursor: "pointer"}} />
+        <StyledBadge badgeContent={1} color="error">
         <ShoppingCartOutlined sx={{fontSize: 30, cursor: "pointer"}} />
+        </StyledBadge>
         </Stack>
         )}
       </Stack>

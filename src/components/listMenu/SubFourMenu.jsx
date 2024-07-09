@@ -6,8 +6,11 @@ import {
   ListItemText,
   Paper,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const SubFourMenu = ({links}) => {
+  const { t, i18n } = useTranslation();
+  let dirMenu = `${i18n.language === "en" ? "right" : "left"}`;
   return (
     <Paper
       className="sub-three-menu"
@@ -16,7 +19,7 @@ const SubFourMenu = ({links}) => {
         zIndex: 9999,
         width: "150px",
         borderRadius: 0,
-        right: -150,
+        [dirMenu]: -150,
         top: 0,
         boxShadow: "0 2px 4px #ddd",
       }}
@@ -27,7 +30,7 @@ const SubFourMenu = ({links}) => {
           return (
             <ListItem key={link.id} disablePadding>
             <ListItemButton>
-              <ListItemText primary={link.name} />
+              <ListItemText primary={t(`ListMenu${link.name}`)} sx={{textAlign: `${i18n.language === "en" ? "left" : "right"}`}} />
             </ListItemButton>
           </ListItem>
           )

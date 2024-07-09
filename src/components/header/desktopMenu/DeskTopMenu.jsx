@@ -250,6 +250,11 @@ const Links = [
       },
       {
         id: 7,
+        name: "Redmi",
+        subLink: [],
+      },
+      {
+        id: 8,
         name: "Samsung",
         subLink: [
           {
@@ -307,15 +312,20 @@ const Links = [
             name: "Z Flip",
             subLink: [],
           },
+          {
+            id: 12,
+            name: "Z Fold",
+            subLink: [],
+          },
         ],
       },
       {
-        id: 8,
+        id: 9,
         name: "VIVO",
         subLink: [],
       },
       {
-        id: 9,
+        id: 10,
         name: "Xiaomi",
         subLink: [],
       },
@@ -596,6 +606,11 @@ const Links = [
         name: "Z Flip",
         subLink: [],
       },
+      {
+        id: 12,
+        name: "Z Fold",
+        subLink: [],
+      },
     ],
   },
   {
@@ -630,7 +645,7 @@ const Links = [
   },
   {
     id: 7,
-    nameLink: "smartwatch",
+    nameLink: "smart watch",
     position: "top",
     subLink: [
       {
@@ -673,7 +688,7 @@ const Links = [
   },
   {
     id: 8,
-    nameLink: "gamesclub",
+    nameLink: "games club",
     position: "top",
     subLink: [
       {
@@ -742,12 +757,12 @@ const Links = [
         subLink: [],
       },
       {
-        id: 3,
+        id: 4,
         name: "Headphone",
         subLink: [],
       },
       {
-        id: 4,
+        id: 5,
         name: "SCREEN PROTECTOR",
         subLink: [],
       },
@@ -783,13 +798,13 @@ const DeskTopMenu = () => {
               >
                 <Percent sx={{ fontSize: "10px" }} />
               </Stack>
-              offers
+              {t(`DeskTopMenuOffers`)}
             </a>
           </li>
           <li>
             <a href="#">
               <CommentOutlined sx={{ fontSize: "20px" }} />
-              blog
+              {t(`DeskTopMenuBlog`)}
             </a>
           </li>
           <li>
