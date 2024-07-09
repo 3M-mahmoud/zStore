@@ -1,5 +1,6 @@
 import { SearchOutlined } from "@mui/icons-material";
 import { InputBase, styled } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -43,11 +44,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const SearchInput = () => {
+  const { t, i18n } = useTranslation();
   return (
-    <Search>
+    <Search sx={{direction: `${i18n.language === "en" ? "" : "ltr"}`}}>
       <StyledInputBase
-        placeholder="Search here…"
-        sx={{ fontSize: 16 }}
+        placeholder={t("search")}
+        sx={{ fontSize: 16}}
         inputProps={{ "aria-label": "search" }}
       />
       <SearchIconWrapper>
