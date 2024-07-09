@@ -1,0 +1,47 @@
+.main-heading-left {
+    cursor: context-menu;
+}
+.main-heading-bottom {
+    text-transform: capitalize !important;
+    font-weight: 500 !important;
+    color: #333333 !important;
+}
+.main-heading-left::before,
+.main-heading-bottom::before {
+  content: "";
+  position: absolute;
+  background-color: #047ac2;
+}
+.main-heading-left::before {
+    left: -20px;
+    width: 3.5px;
+    height: 50px;
+    top: -25px;
+    border-radius: 15px 0 0 15px;
+    -webkit-border-radius: 15px 0 0 15px;
+    -moz-border-radius: 15px 0 0 15px;
+    -ms-border-radius: 15px 0 0 15px;
+    -o-border-radius: 15px 0 0 15px;
+}
+.main-heading-bottom::before {
+    bottom: -25px;
+    width: 70px;
+    height: 3px;
+}
+.main-heading-left.main-heading-ar::before {
+    right: -20px;
+    border-radius: 0 15px 15px 0;
+    -webkit-border-radius: 0 15px 15px 0;
+    -moz-border-radius: 0 15px 15px 0;
+    -ms-border-radius: 0 15px 15px 0;
+    -o-border-radius: 0 15px 15px 0;
+}
+.main-heading-bottom.main-heading-ar {
+    font-weight: 900;
+    font-size: 26px;
+    font-family: "Noto Kufi Arabic", sans-serif !important;
+}
+.main-heading-left.main-heading-ar {
+    font-family: "Noto Kufi Arabic", sans-serif !important;
+    font-size: 22px;
+}
